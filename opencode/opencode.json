@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "oh-my-openagent@latest"
+  ],
+  "model": "minimax/minimax-m2.5:free",
+  "provider": {
+    "openrouter": {
+      "options": {
+        "extraBody": {
+          "models": [
+            "minimax/minimax-m2.5:free",
+            "nousresearch/hermes-3-llama-3.1-405b:free"
+          ],
+          "route": "fallback"
+        }
+      }
+    }
+  }
+}
