@@ -20,72 +20,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
-    {
-      "nvim-telescope/telescope.nvim",
-      dependencies = "tsakirist/telescope-lazy.nvim"
-    },
-    {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-tree").setup({
-        view = { 
-          width = 30,
-          side = "left",
-        },
-        filters = { dotfiles = false },
-        actions = {
-          open_file = {
-            quit_on_open = false,
-          },
-        },
-      })
-    end,
-  },
-    {"iamcco/markdown-preview.nvim", cmd = {"MarkdownPreviewToggle"}, ft = { "markdown" }, build = function() vim.fn["mkdp#util#install"]() end},
-    -- {"terrortylor/nvim-comment", config = function() require("nvim_comment").setup({create_mappings = false}) end},
-    {
-    "folke/todo-comments.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup()
-    end,
-  },
-  {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup()
-    end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("lualine").setup({
-        options = { theme = "catppuccin" },
-      })
-    end,
-  },
-   {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup({
-        signs = {
-          add = { text = "│" },
-          change = { text = "│" },
-          delete = { text = "_" },
-        },
-      })
-    end,
-  },
-    {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-autopairs").setup({})
-    end,
-  },
-  { 'wakatime/vim-wakatime', lazy = false }
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -96,8 +30,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  -- install = { colorscheme = { "tokyonight", "habamax" } },
-  install = { colorscheme = { "catppuccin", "habamax" } },
+  install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
@@ -108,7 +41,7 @@ require("lazy").setup({
       disabled_plugins = {
         "gzip",
         -- "matchit",
-        "matchparen",
+        -- "matchparen",
         -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
