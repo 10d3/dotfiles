@@ -1,15 +1,111 @@
-/* ROUNDED THEME FOR ROFI */
-/* Author: Newman Sanchez (https://github.com/newmanls) */
-
-* {
-    bg0:    #212121F2;
-    bg1:    #2A2A2A;
-    bg2:    #3D3D3D80;
-    bg3:    #AB47BCF2;
-    fg0:    #E6E6E6;
-    fg1:    #FFFFFF;
-    fg2:    #969696;
-    fg3:    #3D3D3D;
+configuration {
+    modi:                "drun,run";
+    font:                "JetBrainsMono Nerd Font";
+    show-icons:          true;
+    icon-theme:          "Papirus";
+    display-drun:        "  Apps";
+    display-run:         "  Run";
+    display-combi:       "";
+    drun-display-format: "{name}";
 }
 
-@import "/template/rounded-template.rasi"
+/* Catppuccin Mocha Palette Definitions */
+* {
+    /* Base Theme Colors */
+    bg-base:      #1e1e2e; /* Main background */
+    bg-mantle:    #181825; /* Darker backdrop layer */
+    bg-surface:   #313244; /* Container surfaces */
+    
+    fg-text:      #cdd6f4; /* Default light text */
+    fg-subtext:   #a6adc8; /* Secondary text */
+    
+    accent-mauve: #cba6f7; /* Primary accent color */
+    crust-dark:   #11111b; /* Darkest contrast text/bg */
+
+    /* Global property defaults applied to all widgets unless overridden */
+    background-color: transparent;
+    text-color:       @fg-text;
+}
+
+/* Main Outer Window Container */
+window {
+    width:            40%;
+    border:           2px;
+    border-color:     @accent-mauve;
+    background-color: @bg-base;
+    padding:          12px;
+    border-radius:    12px;
+}
+
+/* Vertically bundles inputbar and listview */
+mainbox {
+    orientation: vertical;
+    spacing:     10px;
+}
+
+/* Search Bar Wrapper */
+inputbar {
+    orientation:      horizontal; 
+    spacing:          10px;
+    padding:          10px 14px;
+    border-radius:    8px;
+    background-color: @bg-mantle;
+    children:         [ prompt, entry ];
+}
+
+/* Prompt Text Indicator (e.g., " Apps") */
+prompt {
+    text-color: @accent-mauve;
+}
+
+/* Active Text Search Input Field */
+entry {
+    text-color:        @fg-text;
+    placeholder:       "Search...";
+    placeholder-color: @fg-subtext;
+}
+
+/* App Results List Engine */
+listview {
+    lines:         10;
+    columns:       3;
+    fixed-height:  true;
+    spacing:       6px;
+    border-radius: 8px;
+    background-color: @bg-mantle;
+    padding:       6px;
+}
+
+/* Base Wrapper for an Individual Result Row */
+element {
+    orientation:   horizontal;
+    spacing:       10px;
+    padding:       8px;
+    border-radius: 6px;
+}
+
+/* Dynamic State Overrides for Selected Rows */
+element normal.normal {
+    background-color: transparent;
+    text-color:       @fg-text;
+}
+
+element selected.normal {
+    background-color: @accent-mauve;
+    text-color:       @crust-dark;
+}
+
+/* Graphic App Icon Configuration */
+element-icon {
+    size:             24px;
+    vertical-align:   0.5;
+    background-color: transparent;
+}
+
+/* Result Item String Configuration */
+element-text {
+    horizontal-align: 0.0;
+    vertical-align:   0.5;
+    background-color: transparent;
+    text-color:       inherit; /* Forces color inversion when parent 'element selected' activates */
+}

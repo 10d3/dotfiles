@@ -1,0 +1,151 @@
+/* Catppuccin Mocha Palette */
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+@define-color text #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+
+@define-color mauve #cba6f7;
+@define-color pink #f5c2e7;
+@define-color red #f38ba8;
+@define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(30, 30, 46, 0.5);
+  /* Semi-transparent Base */
+  color: @text;
+  border-radius: 12px;
+  transition: background-color 0.5s;
+}
+
+tooltip {
+  background: @base;
+  border: 1px solid @surface1;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: @text;
+}
+
+/* ── Workspaces ────────────────────────────────────────── */
+#workspaces {
+  background: @crust;
+  margin: 4px;
+  padding: 2px;
+  border-radius: 16px;
+}
+
+#workspaces button {
+  padding: 5px 8px;
+  color: @subtext0;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0 2px;
+  border-radius: 12px;
+}
+
+#workspaces button.active {
+  min-width: 50px;
+  background: @mauve;
+  /* Classic Catppuccin accent */
+  color: @crust;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#workspaces button.focused {
+  background: @surface1;
+  color: @text;
+}
+
+#workspaces button:hover {
+  background: @surface0;
+  color: @lavender;
+}
+
+/* ── Modules ───────────────────────────────────────────── */
+#clock {
+  font-weight: 800;
+  color: @crust;
+  background-color: @mauve;
+  margin: 0 10px;
+}
+
+#battery,
+#pulseaudio,
+#network,
+#clock,
+#user,
+#cpu,
+#clock,
+#power-profiles-daemon,
+#backlight {
+  padding: 0 10px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#power-profiles-daemon {
+  background-color: lavender;
+  color: @crust;
+}
+
+#power-profiles-daemon.performance {
+  background-color: @red;
+}
+
+#cpu {
+  background-color: lavender;
+  color: @crust;
+}
+
+#user {
+  background-color: @mauve;
+  color: @crust;
+}
+
+#backlight {
+  background-color: @mauve;
+  color: @crust;
+}
+
+#battery {
+  background-color: @green;
+  color: @crust;
+}
+
+#pulseaudio {
+  background-color: @blue;
+  color: @crust;
+}
+
+#network {
+  background-color: @lavender;
+  color: @crust;
+}
+
+/* ── Customizing for state ────────────────────────────── */
+#battery.charging {
+  background-color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @red;
+  color: @text;
+  animation: blink 0.5s steps(5, start) infinite;
+}

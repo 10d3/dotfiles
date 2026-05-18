@@ -1,0 +1,129 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin-top": 5,
+  "margin-left": 12,
+  "margin-right": 12,
+  // Left side: Workspaces
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  // Center: Window Title (now automatically shows the focused app)
+  "modules-center": [
+    "hyprland/window"
+  ],
+  // Right side: System Tray, Network, PulseAudio, Clock
+  "modules-right": [
+    "cpu",
+    "tray",
+    "network",
+    "power-profiles-daemon",
+    "backlight",
+    "pulseaudio",
+    "clock",
+    "user"
+  ],
+  // Fix: Window title uses "hyprland/window", not "sway/window"[citation:7]
+  "hyprland/window": {
+    "max-length": 80,
+    "separate-outputs": true
+  },
+  // Fix: Workspaces use hyprland, with scroll to switch[citation:4]
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "active": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5 // 5 workspaces by default on every monitor
+    }
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{usage}% ",
+    "max-length": 10
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "user": {
+    "format": "{user}",
+    "interval": 60,
+    "height": 30,
+    "width": 30,
+    "icon": true
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      ""
+    ]
+  },
+  // Clock: Shows Time and Date on hover
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down"
+    }
+  },
+  "network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  }
+}
