@@ -46,7 +46,14 @@ A minimal, styled dotfiles collection for Hyprland, Kitty, Rofi, Neovim, and rel
 
 **Opencode / AI tooling**
 
-This repository also contains an `opencode/` folder with OpenCode/OpenAgent config and skills to help automate or document custom tasks. See `opencode/` for details and examples.
+This repository includes an `opencode/` folder with OpenCode/OpenAgent configuration and custom skills. The setup uses **OpenRouter** as the provider.
+
+**Plugins:**
+- `superpowers` — Enhanced capabilities for workflow automation
+- `oh-my-openagent` — OpenAgent extensions and agent configurations
+- `@tarquinen/opencode-dcp` — Dynamic Context Pruning for optimized context handling
+
+Custom skills and agent definitions are available in the `opencode/` folder.
 
 **Files of interest**
 
@@ -70,5 +77,3 @@ If you'd like, I can:
 - expand the `hypr/` documentation with annotated snippets,
 - add a small install script to bootstrap configs,
 - or create a dedicated gallery page for more photos/videos.
-
-See the README and media files in this repo to preview the ricing: [README.md](README.md) — the gallery uses `look/` media already included.
